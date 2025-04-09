@@ -1,0 +1,25 @@
+<div class="home">
+  <div class="hero">
+    <img src="/assets/placeholder.svg?height=600&width=1200" alt="Hero Image" class="hero-image">
+    <div class="hero-content">
+      <h1>Welcome to Our E-Commerce Store</h1>
+      <p>Discover amazing products at great prices</p>
+      <a routerLink="/category/1" class="cta-button">Shop Now</a>
+    </div>
+  </div>
+
+  <div class="featured-products">
+    <h2>Featured Products</h2>
+    <div class="product-list">
+      <div *ngFor="let product of products; let i = index" class="product-item" [class.right-aligned]="i % 2 !== 0">
+        <div class="product-image">
+          <img [src]="product.image" [alt]="product.name">
+        </div>
+        <div class="product-info">
+          <app-product-information [product]="product"></app-product-information>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

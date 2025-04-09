@@ -1,0 +1,101 @@
+<div class="container">
+  <h1>Checkout</h1>
+  <div class="checkout-content">
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()" class="checkout-form">
+      <h2>Shipping Information</h2>
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input id="firstName" type="text" formControlName="firstName">
+        <div *ngIf="checkoutForm.get('firstName')?.invalid && checkoutForm.get('firstName')?.touched" class="error">
+          First Name is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input id="lastName" type="text" formControlName="lastName">
+        <div *ngIf="checkoutForm.get('lastName')?.invalid && checkoutForm.get('lastName')?.touched" class="error">
+          Last Name is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="email">
+        <div *ngIf="checkoutForm.get('email')?.invalid && checkoutForm.get('email')?.touched" class="error">
+          Please enter a valid email address
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input id="address" type="text" formControlName="address">
+        <div *ngIf="checkoutForm.get('address')?.invalid && checkoutForm.get('address')?.touched" class="error">
+          Address is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="city">City</label>
+        <input id="city" type="text" formControlName="city">
+        <div *ngIf="checkoutForm.get('city')?.invalid && checkoutForm.get('city')?.touched" class="error">
+          City is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="country">Country</label>
+        <input id="country" type="text" formControlName="country">
+        <div *ngIf="checkoutForm.get('country')?.invalid && checkoutForm.get('country')?.touched" class="error">
+          Country is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="zipCode">Zip Code</label>
+        <input id="zipCode" type="text" formControlName="zipCode">
+        <div *ngIf="checkoutForm.get('zipCode')?.invalid && checkoutForm.get('zipCode')?.touched" class="error">
+          Zip Code is required
+        </div>
+      </div>
+
+      <h2>Payment Information</h2>
+      <div class="form-group">
+        <label for="cardName">Name on Card</label>
+        <input id="cardName" type="text" formControlName="cardName">
+        <div *ngIf="checkoutForm.get('cardName')?.invalid && checkoutForm.get('cardName')?.touched" class="error">
+          Name on card is required
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="cardNumber">Card Number</label>
+        <input id="cardNumber" type="text" formControlName="cardNumber">
+        <div *ngIf="checkoutForm.get('cardNumber')?.invalid && checkoutForm.get('cardNumber')?.touched" class="error">
+          Please enter a valid 16-digit card number
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="expirationDate">Expiration Date (MM/YY)</label>
+        <input id="expirationDate" type="text" formControlName="expirationDate">
+        <div *ngIf="checkoutForm.get('expirationDate')?.invalid && checkoutForm.get('expirationDate')?.touched" class="error">
+          Please enter a valid expiration date (MM/YY)
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="cvv">CVV</label>
+        <input id="cvv" type="text" formControlName="cvv">
+        <div *ngIf="checkoutForm.get('cvv')?.invalid && checkoutForm.get('cvv')?.touched" class="error">
+          Please enter a valid CVV (3 or 4 digits)
+        </div>
+      </div>
+
+      <button type="submit" [disabled]="checkoutForm.invalid">Place Order</button>
+    </form>
+
+    <div class="order-summary">
+      <h2>Order Summary</h2>
+      <div *ngFor="let item of cartItems$ | async" class="order-item">
+        <span>{{ item.name }}</span>
+        <span>{{ item.quantity }} x {{ item.price | currency }}</span>
+      </div>
+      <div class="order-total">
+        <strong>Total: {{ total$ | async | currency }}</strong>
+      </div>
+    </div>
+  </div>
+</div>
+

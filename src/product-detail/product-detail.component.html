@@ -1,0 +1,17 @@
+<div class="product-detail">
+  <app-breadcrumb [items]="breadcrumbItems"></app-breadcrumb>
+  <div class="product-main">
+    <app-product-image-gallery [images]="product.images"></app-product-image-gallery>
+    <div class="product-info">
+      <app-product-information [product]="product"></app-product-information>
+      <app-product-rating [rating]="product.rating"></app-product-rating>
+      <div class="action-buttons">
+        <app-add-to-cart [productId]="product.id"></app-add-to-cart>
+        <app-add-to-wishlist [productId]="product.id"></app-add-to-wishlist>
+      </div>
+    </div>
+  </div>
+  <app-reviews [reviews]="reviews"></app-reviews>
+  <app-related-products [relatedProducts]="relatedProducts"></app-related-products>
+</div>
+

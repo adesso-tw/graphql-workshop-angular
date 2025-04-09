@@ -1,0 +1,7 @@
+<div class="product-info">
+  <h3>{{ product.name }}</h3>
+  <p class="description">{{ product.description }}</p>
+  <p class="price">{{ product.price | currency }}</p>
+  <a [routerLink]="['/product', product.id]" class="view-details">View Details</a>
+</div>
+

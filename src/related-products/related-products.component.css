@@ -1,0 +1,36 @@
+.related-products {
+  margin-top: 2rem;
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.product-list {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+}
+
+.product-item {
+  min-width: 150px;
+  text-align: center;
+}
+
+.product-item img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.product-item h3 {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.product-item p {
+  font-weight: bold;
+  color: #007bff;
+}
+

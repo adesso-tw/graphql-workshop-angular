@@ -1,0 +1,40 @@
+<div class="container">
+  <h1>Your Cart</h1>
+  <div class="cart-content">
+    <div class="cart-items">
+      <div *ngFor="let item of cartItems$ | async" class="cart-item">
+        <div class="item-details">
+          <h3>{{ item.name }}</h3>
+          <p>Price: {{ item.price | currency }}</p>
+        </div>
+        <div class="item-quantity">
+          <button (click)="updateQuantity(item.id, item.quantity - 1)" [disabled]="item.quantity === 1">-</button>
+          <span>{{ item.quantity }}</span>
+          <button (click)="updateQuantity(item.id, item.quantity + 1)">+</button>
+        </div>
+        <div class="item-total">
+          <p>Total: {{ item.price * item.quantity | currency }}</p>
+          <button (click)="removeItem(item.id)" class="remove-btn">Remove</button>
+        </div>
+      </div>
+    </div>
+    <div class="cart-summary">
+      <h2>Order Summary</h2>
+      <p>Subtotal: {{ total$ | async | currency }}</p>
+      <div class="shipping-calculator">
+        <h3>Calculate Shipping</h3>
+        <select [(ngModel)]="shippingCountry" (change)="calculateShipping()">
+          <option value="">Select Country</option>
+          <option value="USA">United States</option>
+          <option value="Canada">Canada</option>
+          <option value="UK">United Kingdom</option>
+          <option value="Other">Other</option>
+        </select>
+        <p *ngIf="shippingCost > 0">Shipping Cost: {{ shippingCost | currency }}</p>
+      </div>
+      <p class="total"><strong>Total: {{ ((total$ | async) ?? 0) + shippingCost | currency }}</strong></p>
+      <a routerLink="/checkout" class="checkout-btn">Proceed to Checkout</a>
+    </div>
+  </div>
+</div>
+

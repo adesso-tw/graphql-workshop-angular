@@ -1,0 +1,72 @@
+.reviews {
+  margin-top: 2rem;
+}
+
+.review-list {
+  margin-bottom: 2rem;
+}
+
+.review {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 1rem 0;
+}
+
+.review header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.review h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.review time {
+  font-size: 0.8rem;
+  color: #666;
+}
+
+.review-form {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 0.25rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+.form-group textarea {
+  height: 100px;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+

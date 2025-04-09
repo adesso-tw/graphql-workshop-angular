@@ -1,0 +1,36 @@
+<section class="reviews">
+  <h2>Customer Reviews</h2>
+  <div class="review-list">
+    <article *ngFor="let review of reviews" class="review">
+      <header>
+        <h3>{{ review.author }}</h3>
+        <app-product-rating [rating]="review.rating"></app-product-rating>
+        <time>{{ review.date }}</time>
+      </header>
+      <p>{{ review.content }}</p>
+    </article>
+  </div>
+  <form (ngSubmit)="submitReview()" class="review-form">
+    <h3>Write a Review</h3>
+    <div class="form-group">
+      <label for="author">Name:</label>
+      <input type="text" id="author" name="author" [(ngModel)]="newReview.author" required>
+    </div>
+    <div class="form-group">
+      <label for="rating">Rating:</label>
+      <select id="rating" name="rating" [(ngModel)]="newReview.rating">
+        <option value="5">5 Stars</option>
+        <option value="4">4 Stars</option>
+        <option value="3">3 Stars</option>
+        <option value="2">2 Stars</option>
+        <option value="1">1 Star</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="content">Review:</label>
+      <textarea id="content" name="content" [(ngModel)]="newReview.content" required></textarea>
+    </div>
+    <button type="submit">Submit Review</button>
+  </form>
+</section>
+
