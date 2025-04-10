@@ -6,8 +6,8 @@
       <app-product-information [product]="product"></app-product-information>
       <app-product-rating [rating]="product.rating"></app-product-rating>
       <div class="action-buttons">
-        <app-add-to-cart [productId]="product.id"></app-add-to-cart>
-        <app-add-to-wishlist [productId]="product.id"></app-add-to-wishlist>
+        <app-add-to-cart [productId]="product.sku"></app-add-to-cart>
+        <app-add-to-wishlist [productId]="product.sku"></app-add-to-wishlist>
       </div>
     </div>
   </div>

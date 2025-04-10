@@ -14,15 +14,21 @@ import {CurrencyPipe} from "@angular/common";
 })
 export class ProductInformationComponent {
   @Input() product: {
-    id: number
+    sku: string
     name: string
     description: string
-    price: number
+    price: {
+      amount: number
+      currency: string
+    }
   } = {
-    id: 0,
+    sku: '',
     name: "",
     description: "",
-    price: 0,
+    price: {
+      amount: 0,
+      currency: "EUR",
+    },
   }
 }
 

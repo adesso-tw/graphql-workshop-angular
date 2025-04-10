@@ -7,7 +7,7 @@ import { Component, Input } from "@angular/core"
   standalone: true
 })
 export class AddToCartComponent {
-  @Input() productId = 0
+  @Input() productId = ''
   quantity = 1
 
   incrementQuantity() {

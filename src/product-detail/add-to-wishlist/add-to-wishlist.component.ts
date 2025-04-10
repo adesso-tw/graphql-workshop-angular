@@ -7,7 +7,7 @@ import { Component, Input } from "@angular/core"
   standalone: true
 })
 export class AddToWishlistComponent {
-  @Input() productId = 0
+  @Input() productId = ''
   isInWishlist = false
 
   addToWishlist() {

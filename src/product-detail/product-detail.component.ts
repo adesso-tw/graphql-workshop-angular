@@ -46,10 +46,10 @@ export class ProductDetailComponent implements OnInit {
   ]
 
   product = {
-    id: 1,
+    sku: '1',
     name: "Example Product",
     description: "This is an example product description. It showcases the features and benefits of the product.",
-    price: 99.99,
+    price: {amount: 9999, currency: "EUR"},
     rating: 4.5,
     images: [
       "/assets/placeholder.svg?height=400&width=400",
